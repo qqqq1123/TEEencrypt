@@ -130,9 +130,6 @@ static TEE_Result enc_value(uint32_t param_types, TEE_Param params[4])
 	
 	DMSG("plaintext.txt: %s", in);
 	DMSG("Encrypted plaintext.txt: %s", out);
-
-//	out[in_len-1]=key+root_key;
-//	out[in_len]='\n';
 	
 	out[in_len-1]=(key+root_key)+' ';
 	out[in_len]='\n';
@@ -149,7 +146,6 @@ static TEE_Result dec_value(uint32_t param_types, TEE_Param params[4])
 	
 	key = in[in_len-2] - ' ';
 	key = key - root_key;
-//	key = in[in_len-2]-root_key;
 		
 	DMSG(">> Decryption ....");
 
