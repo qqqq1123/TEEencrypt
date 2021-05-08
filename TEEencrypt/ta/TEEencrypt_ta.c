@@ -115,7 +115,9 @@ static TEE_Result enc_value(uint32_t param_types, TEE_Param params[4])
 		
 		TEE_GenerateRandom(&key, sizeof(key));
 	}
+	DMSG("randomNumber: %d", key);
 	key = key % 26;
+	DMSG("key: %d", key);
 
 	DMSG(">> Encryption ....");
 
